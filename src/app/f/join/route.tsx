@@ -4,6 +4,8 @@ import { Button } from "frames.js/next";
 import { DOMAIN } from "@/config";
 
 const handler = frames(async (ctx) => {
+  console.log(ctx);
+
   const fid = ctx?.message?.requesterFid;
 
   if (fid) {
