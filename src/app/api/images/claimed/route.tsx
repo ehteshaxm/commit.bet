@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
       <div tw="flex flex-row bg-black w-full h-full text-white relative">
         <div tw="flex flex-col justify-center items-center w-full">
           <img
-            src="https://w0.peakpx.com/wallpaper/271/142/HD-wallpaper-abstract-minimal-blur-abstract-blur-minimalism-minimalist-deviantart.jpg"
+            src="https://commit-bet.vercel.app/assets/images/frame.png"
             tw="h-full w-full absolute top-0 left-0 z-1"
             width={500}
             height={700}
