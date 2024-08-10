@@ -1,7 +1,7 @@
-import { addFid, checkIfFidExists } from "@/app/utils/helpers";
 import { frames } from "../frames";
 import { Button } from "frames.js/next";
 import { DOMAIN } from "@/config";
+import { addUserToDatabase, verifyUserExists } from "@/app/utils/helpers";
 
 const handler = frames(async (ctx) => {
   console.log(ctx);
@@ -9,11 +9,11 @@ const handler = frames(async (ctx) => {
   const fid = ctx?.message?.requesterFid;
 
   if (fid) {
-    const isParticipant = await checkIfFidExists(fid);
+    const isParticipant = await verifyUserExists(fid);
 
     if (!isParticipant) {
       //add fid to the list
-      await addFid(fid);
+      await addUserToDatabase(fid);
 
       return {
         image: `${DOMAIN}/api/images/joined`,

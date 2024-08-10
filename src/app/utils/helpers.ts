@@ -1,45 +1,28 @@
-import { promises as fs } from "fs";
-import path from "path";
+import { prisma } from '../lib/prisma';
 
-const filePath = path.join(process.cwd(), "src", "app", "data", "fids.json");
-
-export async function addFid(fid: number) {
+export async function addUserToDatabase(fid: number): Promise<void> {
   try {
-    let data;
-
-    try {
-      const fileContents = await fs.readFile(filePath, "utf8");
-      data = JSON.parse(fileContents);
-    } catch (error) {
-      data = {};
-    }
-
-    if (!Array.isArray(data.fids)) {
-      data.fids = [];
-    }
-
-    if (!data.fids.includes(fid)) {
-      data.fids.push(fid);
-
-      await fs.writeFile(filePath, JSON.stringify(data, null, 2));
-      return true;
-    }
-
-    return false;
+    await prisma.user.create({
+      data: {
+        fid: fid,
+      },
+    });
   } catch (error) {
-    console.error("Error adding fid:", error);
+    console.error('Error adding user to database:', error);
     throw error;
   }
 }
 
-export async function checkIfFidExists(fid: number) {
+export async function verifyUserExists(fid: number): Promise<boolean> {
   try {
-    const fileContents = await fs.readFile(filePath, "utf8");
-    const data = JSON.parse(fileContents);
-
-    return Array.isArray(data.fids) && data.fids.includes(fid);
+    const user = await prisma.user.findUnique({
+      where: {
+        fid: fid,
+      },
+    });
+    return user !== null;
   } catch (error) {
-    console.error("Error verifying fid:", error);
-    return false;
+    console.error('Error verifying user existence:', error);
+    throw error;
   }
 }
