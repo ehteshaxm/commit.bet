@@ -11,7 +11,7 @@ export const POST = frames(async (ctx) => {
 
   const userAddress = ctx.message.connectedAddress;
 
-  const functionName = "mint";
+  const functionName = "transfer";
   const args = [userAddress, ethers.utils.parseEther("1.0")];
 
   const calldata = encodeFunctionData({
