@@ -6,7 +6,7 @@ const handler = frames(async (ctx) => {
   return {
     image: `${DOMAIN}/api/images/won`,
     buttons: [
-      <Button key="1" action="tx" target={`${DOMAIN}/f/`}>
+      <Button key="1" action="tx" target={`${DOMAIN}/f/txclaim`}>
         Claim
       </Button>,
       <Button key="2" action="post" target={`${DOMAIN}/f/`}>

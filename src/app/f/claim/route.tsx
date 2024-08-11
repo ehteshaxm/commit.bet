@@ -5,8 +5,6 @@ import { Button } from "frames.js/next";
 const handler = frames(async (ctx) => {
   //write code to airdrop back the balance
   // find wallet address on ctx
-
-  
   return {
     image: `${DOMAIN}/api/images/claimed`,
     buttons: [
