@@ -60,7 +60,7 @@ export async function GET(req: NextRequest) {
           <div tw="flex justify-between space-x-2 mt-10 min-h-[160px]">
             <div tw="flex flex-col items-center text-2xl p-3 w-1/3 h-full bg-green-500 rounded-xl border border-b-2 border-black shadow-md shadow-black">
               Entry Fee
-              <div tw="bg-white text-xl mt-5 p-1 rounded-lg">0.222 ETH</div>
+              <div tw="bg-white text-xl mt-5 p-1 rounded-lg">0.01 ETH</div>
             </div>
             <div tw="flex flex-col items-center text-2xl p-3 w-1/3 h-full bg-lime-500 rounded-xl border border-b-2 border-black shadow-md shadow-black mx-2">
               Players
@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
             </div>
             <div tw="flex flex-col items-center text-2xl p-3 w-1/3 h-full bg-fuchsia-300 rounded-xl border border-b-2 border-black shadow-md shadow-black">
               Prize Pool
-              <div tw="bg-white text-xl mt-5 p-1 rounded-lg">0.222 ETH</div>
+              <div tw="bg-white text-xl mt-5 p-1 rounded-lg">1 ETH</div>
             </div>
           </div>
         </div>
