@@ -12,13 +12,12 @@ export const POST = frames(async (ctx) => {
   const userAddress = ctx.message.connectedAddress;
 
   const functionName = "transfer";
-  const args = [userAddress, ethers.utils.parseEther("1.0")];
 
   const calldata = encodeFunctionData({
     abi: contractAbi,
     functionName: functionName,
-    args: args,
   });
+  const _value = ethers.utils.parseEther("0.01").toString();
 
   return transaction({
     chainId: "eip155:84532",
@@ -27,7 +26,7 @@ export const POST = frames(async (ctx) => {
       abi: contractAbi as Abi,
       to: contractAddress,
       data: calldata,
-      value: "0",
+      value: _value,
     },
   });
 });
