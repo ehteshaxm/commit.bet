@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
           <img
             src="https://commit-bet.vercel.app/assets/images/frame.png"
             tw="h-full w-full absolute top-0 left-0 z-1"
-            width={500}
+            width={1200}
             height={700}
           />
           <p

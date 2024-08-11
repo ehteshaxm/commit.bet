@@ -1,11 +1,8 @@
-import { frames } from "../../frames/frames" // Adjust the path if necessary
+import { frames } from "../frames";
 import { transaction } from "frames.js/core";
-import { encodeFunctionData, Abi } from 'viem';
-import { ethers } from 'ethers';
-import { contractAddress, contractAbi } from "../../constants/contract"
-
-
-
+import { encodeFunctionData, Abi } from "viem";
+import { ethers } from "ethers";
+import { contractAddress, contractAbi } from "../../constants/contract";
 
 export const POST = frames(async (ctx) => {
   if (!ctx.message) {
@@ -23,9 +20,8 @@ export const POST = frames(async (ctx) => {
     args: args,
   });
 
-
   return transaction({
-    chainId: "eip155:84532", 
+    chainId: "eip155:84532",
     method: "eth_sendTransaction",
     params: {
       abi: contractAbi as Abi,
