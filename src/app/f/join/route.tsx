@@ -4,8 +4,6 @@ import { DOMAIN } from "@/config";
 import { addUserToDatabase, verifyUserExists } from "@/app/utils/helpers";
 
 const handler = frames(async (ctx) => {
-  console.log(ctx);
-
   const fid = ctx?.message?.requesterFid;
 
   if (fid) {
@@ -16,13 +14,13 @@ const handler = frames(async (ctx) => {
       await addUserToDatabase(fid);
 
       return {
-        image: `${DOMAIN}/api/images/joined`,
+        image: `${DOMAIN}/api/images/stake`,
         buttons: [
-          <Button key="1" action="post" target={`${DOMAIN}/f/`}>
-            Back to the detail
+          <Button key="1" action="tx" target={`${DOMAIN}/f/txdata`}>
+            Stake
           </Button>,
-          <Button key="2" action="link" target={`${DOMAIN}/f/`}>
-            See more contests
+          <Button key="2" action="post" target={`${DOMAIN}/f/`}>
+            Back to the detail
           </Button>,
         ],
       };
