@@ -12,7 +12,7 @@ export const POST = frames(async (ctx) => {
   const userAddress = ctx.message.connectedAddress;
 
   const functionName = "claim";
-  const args = [ethers.utils.parseEther("0.001")];
+  const args = [ethers.utils.parseEther("0.01")];
 
   const calldata = encodeFunctionData({
     abi: contractAbi,
