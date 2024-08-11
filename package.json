@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@farcaster/auth-kit": "^0.3.1",
     "@prisma/client": "^5.18.0",
     "@vercel/og": "^0.6.2",
     "ethers": "5.7.2",

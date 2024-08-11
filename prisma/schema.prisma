@@ -1,6 +1,6 @@
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -8,5 +8,15 @@ generator client {
 }
 
 model user {
+  id  Int @id @default(autoincrement())
   fid Int @unique
+}
+
+model waitlist {
+  id            Int      @id @default(autoincrement())
+  fid           Int      @unique
+  username      String
+  displayName   String
+  verifications String[]
+  createdAt     DateTime @default(now())
 }

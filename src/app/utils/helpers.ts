@@ -1,4 +1,5 @@
-import { prisma } from '../lib/prisma';
+"use server";
+import { prisma } from "../lib/prisma";
 
 export async function addUserToDatabase(fid: number): Promise<void> {
   try {
@@ -8,7 +9,7 @@ export async function addUserToDatabase(fid: number): Promise<void> {
       },
     });
   } catch (error) {
-    console.error('Error adding user to database:', error);
+    console.error("Error adding user to database:", error);
     throw error;
   }
 }
@@ -22,7 +23,28 @@ export async function verifyUserExists(fid: number): Promise<boolean> {
     });
     return user !== null;
   } catch (error) {
-    console.error('Error verifying user existence:', error);
+    console.error("Error verifying user existence:", error);
+    throw error;
+  }
+}
+
+export async function addToWaitlistDB(
+  fid: number,
+  username: string,
+  displayName: string,
+  verifications: string[]
+) {
+  try {
+    await prisma.waitlist.create({
+      data: {
+        fid: fid,
+        username: username,
+        displayName: displayName,
+        verifications: verifications,
+      },
+    });
+  } catch (error) {
+    console.error("Error adding user to waitlist:", error);
     throw error;
   }
 }
