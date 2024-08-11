@@ -45,6 +45,5 @@ export async function addToWaitlistDB(
     });
   } catch (error) {
     console.error("Error adding user to waitlist:", error);
-    throw error;
   }
 }

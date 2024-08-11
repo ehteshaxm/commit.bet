@@ -3,6 +3,7 @@ import { AuthKitProvider, SignInButton, useProfile } from "@farcaster/auth-kit";
 import "@farcaster/auth-kit/styles.css";
 import { useEffect, useState } from "react";
 import { addToWaitlistDB } from "./utils/helpers";
+import Confetti from "react-confetti";
 
 const config = {
   // For a production app, replace this with an Optimism Mainnet
@@ -49,10 +50,19 @@ const LandingPage = () => {
   return (
     <AuthKitProvider config={config}>
       <main className="min-h-screen relative flex flex-col items-center justify-center">
+        {completed && (
+          <Confetti
+            numberOfPieces={1000}
+            width={1800}
+            height={1200}
+            recycle={false}
+          />
+        )}
+
         <img
           src="/assets/images/frame.png"
           alt="bg"
-          className="w-full h-full absolute top-0 left-0 z-1"
+          className="w-full h-full absolute top-0 left-0 z-1 mx-auto"
         />
         <section className="relative z-10 flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
@@ -62,7 +72,7 @@ const LandingPage = () => {
             </h1>
           </div>
           {completed ? (
-            <p className="text-2xl poppins-medium ">
+            <p className="text-2xl poppins-medium mt-16">
               {"You're on the waitlist! 🚀"}
             </p>
           ) : (
